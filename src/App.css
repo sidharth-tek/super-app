@@ -1,0 +1,32 @@
+body {
+  width: 100% !important;
+}
+
+#root {
+  width: 100% !important;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.main-body {
+  margin-top: 15vh;
+  min-height: 90vh;
+}
+
+.thumb-nail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.services {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
