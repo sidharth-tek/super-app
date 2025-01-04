@@ -23,22 +23,26 @@ const SingleUseApp = ({ }) => {
         ref.current.url = evt.target.value
     }
 
-    return (
-        <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+    const handleOnCopy = () => {
+        navigator.clipboard.writeText(singleUseUrl)
+    }
 
-            <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
-                <TextField label="Outlined" onChange={handleOnUrlEntry} />
+    return (
+        <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', rowGap: '32px' }}>
+
+            <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: '70%', columnGap: '16px' }}>
+                <TextField label="Enter URL" size='small' fullWidth onChange={handleOnUrlEntry} />
                 <Button variant="contained" onClick={handleOnCreateClick} >Create</Button>
             </Box>
             {
                 !!singleUseUrl && (
-                    <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
-                        <Typography variant='body2' >{singleUseUrl}</Typography>
-                        <IconButton><ContentCopyIcon /> </IconButton>
+                    <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: '70%', columnGap: '16px' }}>
+                        <TextField label="Single use URL" size='small' fullWidth value={singleUseUrl} disabled />
+                        <Button variant="contained" startIcon={<ContentCopyIcon />} onClick={handleOnCopy} >Copy</Button>
                     </Box>
                 )
             }
-        </Box>
+        </Box >
     );
 };
 
